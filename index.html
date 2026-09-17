@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ankorius | Facility Management &amp; Maintenance</title>
-<meta name="description" content="Ankorius delivers cleaning, maintenance, electrical and waste management services for property owners, investors and portfolio managers who need one accountable partner.">
+<title>Facility Management &amp; Contract Cleaning Services London | Ankorius</title>
+<meta name="description" content="Ankorius delivers cleaning, maintenance, electrical and waste management services for property owners, investors and portfolio managers across London and the UK who need one accountable partner.">
+<link rel="canonical" href="https://www.ankorius.co.uk/">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -15,25 +16,78 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Ankorius",
-  "url": "https://www.ankorius.co.uk",
-  "logo": "https://www.ankorius.co.uk/assets/logo-full.png",
-  "image": "https://www.ankorius.co.uk/assets/logo-full.png",
-  "description": "Ankorius delivers cleaning, maintenance, electrical and waste management services for property owners, investors and portfolio managers who need one accountable partner.",
-  "email": "info@ankorius.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "London",
-    "addressCountry": "GB"
-  },
-  "areaServed": "GB",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer service",
-    "email": "info@ankorius.com",
-    "areaServed": "GB"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.ankorius.co.uk/#organization",
+      "name": "Ankorius",
+      "url": "https://www.ankorius.co.uk",
+      "logo": "https://www.ankorius.co.uk/assets/logo-full.png",
+      "image": "https://www.ankorius.co.uk/assets/logo-full.png",
+      "description": "Ankorius delivers cleaning, maintenance, electrical and waste management services for property owners, investors and portfolio managers across London and the UK who need one accountable partner.",
+      "email": "info@ankorius.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "London",
+        "addressCountry": "GB"
+      },
+      "areaServed": "GB",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "info@ankorius.com",
+        "areaServed": "GB"
+      }
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Cleaning & Janitorial",
+      "name": "Cleaning & Janitorial",
+      "description": "Scheduled or on-demand commercial cleaning that keeps every space presentation-ready, every day.",
+      "provider": { "@id": "https://www.ankorius.co.uk/#organization" },
+      "areaServed": "GB"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Building Maintenance & Repairs",
+      "name": "Building Maintenance & Repairs",
+      "description": "Reactive and planned maintenance covering the fabric of your building, inside and out.",
+      "provider": { "@id": "https://www.ankorius.co.uk/#organization" },
+      "areaServed": "GB"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Electrical Services",
+      "name": "Electrical Services",
+      "description": "Certified electrical works, testing and emergency call-outs, carried out safely and to code.",
+      "provider": { "@id": "https://www.ankorius.co.uk/#organization" },
+      "areaServed": "GB"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Waste Removal & Management",
+      "name": "Waste Removal & Management",
+      "description": "Reliable collection, recycling and fully compliant disposal for commercial and residential sites.",
+      "provider": { "@id": "https://www.ankorius.co.uk/#organization" },
+      "areaServed": "GB"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Landscaping & Grounds",
+      "name": "Landscaping & Grounds",
+      "description": "Grounds care that protects kerb appeal and asset value across every season.",
+      "provider": { "@id": "https://www.ankorius.co.uk/#organization" },
+      "areaServed": "GB"
+    },
+    {
+      "@type": "Service",
+      "serviceType": "24/7 Emergency Response",
+      "name": "24/7 Emergency Response",
+      "description": "A dedicated callout line for urgent issues, day or night, with rapid on-site attendance.",
+      "provider": { "@id": "https://www.ankorius.co.uk/#organization" },
+      "areaServed": "GB"
+    }
+  ]
 }
 </script>
 </head>
@@ -76,7 +130,7 @@
   <!-- HERO -->
   <section class="hero" id="top">
     <div class="hero-bg" aria-hidden="true">
-      <img src="assets/hero-bg.jpg" alt="" class="hero-photo">
+      <img src="assets/hero-bg.jpg" alt="Ankorius facility management team working inside a commercial office building in London" class="hero-photo">
       <div class="hero-photo-overlay"></div>
     </div>
     <div class="container hero-inner">
