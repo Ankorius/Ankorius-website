@@ -259,6 +259,7 @@ h3 { font-size: 1.25rem; }
 }
 .service-icon svg { width: 26px; height: 26px; }
 .service-icon-img { height: 40px; width: auto; }
+.service-icon-img--clock { height: 32px; }
 .service-card h3 { margin-bottom: 8px; }
 .service-card p { color: var(--ink-muted); font-size: 0.9375rem; }
 
