@@ -408,4 +408,5 @@ h3 { font-size: 1.25rem; }
   .hero-cta .btn { width: 100%; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-contact { align-items: flex-start; }
+  .hero-photo { object-position: 68% 35%; }
 }

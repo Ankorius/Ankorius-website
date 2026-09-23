@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["--yes", "serve", ".", "-l", "5199"],
       "port": 5199
+    },
+    {
+      "name": "ankorius-card",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "C:\\Users\\drift\\AppData\\Local\\Temp\\claude\\C--Users-drift-Desktop-Ankorius\\3596daef-c612-4600-ad5c-078149b57feb\\scratchpad\\business-card", "-l", "5321"],
+      "port": 5321
     }
   ]
 }
