@@ -258,6 +258,7 @@ h3 { font-size: 1.25rem; }
   margin-bottom: var(--space-3);
 }
 .service-icon svg { width: 26px; height: 26px; }
+.service-icon-img { height: 28px; width: auto; }
 .service-card h3 { margin-bottom: 8px; }
 .service-card p { color: var(--ink-muted); font-size: 0.9375rem; }
 
