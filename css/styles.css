@@ -409,4 +409,10 @@ h3 { font-size: 1.25rem; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-contact { align-items: flex-start; }
   .hero-photo { object-position: 58% 35%; }
+  .hero { padding-top: 28px; }
+  .hero-inner { padding-block: 0 24px; }
+  .hero-inner .eyebrow { margin-bottom: 10px; }
+  .hero-title { margin-bottom: 12px; }
+  .hero-sub { margin-bottom: 20px; }
+  .trust-bar-inner { padding-block: 16px; gap: var(--space-2); }
 }
