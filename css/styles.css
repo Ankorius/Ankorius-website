@@ -152,7 +152,8 @@ h3 { font-size: 1.25rem; }
   box-shadow: var(--shadow-sm);
 }
 .btn-whatsapp:hover { background: #1DA851; box-shadow: var(--shadow-md); }
-.whatsapp-cta { margin-top: var(--space-4); width: 100%; }
+.whatsapp-cta { margin-top: var(--space-4); width: 100%; white-space: normal; text-align: center; }
+.contact-grid > * { min-width: 0; }
 
 .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
