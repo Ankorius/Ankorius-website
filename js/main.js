@@ -3,6 +3,98 @@
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  /* ---- Cookie consent + Google Analytics (loads only after opt-in) ----
+     Set your GA4 Measurement ID below (format G-XXXXXXXXXX). While it is empty,
+     no banner is shown and nothing is loaded. */
+  var GA_MEASUREMENT_ID = "";
+  var CONSENT_KEY = "ankorius_cookie_consent";
+  var CONSENT_MAX_AGE = 365 * 24 * 60 * 60 * 1000;
+
+  function readConsent() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(CONSENT_KEY));
+      if (saved && (saved.value === "granted" || saved.value === "denied") && Date.now() - saved.time < CONSENT_MAX_AGE) {
+        return saved.value;
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  function writeConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ value: value, time: Date.now() })); } catch (e) {}
+  }
+
+  function loadAnalytics() {
+    if (window.__gaLoaded || !GA_MEASUREMENT_ID) return;
+    window.__gaLoaded = true;
+    window["ga-disable-" + GA_MEASUREMENT_ID] = false;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_MEASUREMENT_ID);
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", GA_MEASUREMENT_ID, { allow_google_signals: false, allow_ad_personalization_signals: false });
+  }
+
+  function removeAnalyticsCookies() {
+    if (GA_MEASUREMENT_ID) window["ga-disable-" + GA_MEASUREMENT_ID] = true;
+    var host = location.hostname.split(".");
+    var domains = [location.hostname];
+    for (var i = 1; i < host.length - 1; i++) domains.push("." + host.slice(i).join("."));
+    document.cookie.split(";").forEach(function (c) {
+      var name = c.split("=")[0].trim();
+      if (name === "_ga" || name.indexOf("_ga_") === 0 || name === "_gid" || name.indexOf("_gat") === 0) {
+        domains.forEach(function (d) {
+          document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=" + d;
+        });
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+      }
+    });
+  }
+
+  function hideBanner() {
+    var b = document.getElementById("cookie-banner");
+    if (b) b.parentNode.removeChild(b);
+  }
+
+  function showBanner() {
+    if (document.getElementById("cookie-banner")) return;
+    var b = document.createElement("div");
+    b.id = "cookie-banner";
+    b.className = "cookie-banner";
+    b.setAttribute("role", "region");
+    b.setAttribute("aria-label", "Cookie consent");
+    b.innerHTML =
+      '<p class="cookie-banner-title">Cookies on this website</p>' +
+      '<p>We&rsquo;d like to use Google Analytics cookies to understand how visitors use our site and improve it. ' +
+      'These are only set if you accept. See our <a href="cookies.html">Cookie Policy</a>.</p>' +
+      '<div class="cookie-banner-actions">' +
+      '<button type="button" class="btn btn-outline btn-sm" data-consent="denied">Reject</button>' +
+      '<button type="button" class="btn btn-primary btn-sm" data-consent="granted">Accept analytics</button>' +
+      "</div>";
+    b.addEventListener("click", function (e) {
+      var choice = e.target.getAttribute && e.target.getAttribute("data-consent");
+      if (!choice) return;
+      writeConsent(choice);
+      if (choice === "granted") loadAnalytics(); else removeAnalyticsCookies();
+      hideBanner();
+    });
+    document.body.appendChild(b);
+  }
+
+  if (GA_MEASUREMENT_ID) {
+    var settingsBtns = document.querySelectorAll("[data-cookie-settings]");
+    settingsBtns.forEach(function (btn) {
+      btn.hidden = false;
+      btn.addEventListener("click", showBanner);
+    });
+    var existing = readConsent();
+    if (existing === "granted") loadAnalytics();
+    else if (existing === null) showBanner();
+  }
+
   /* Logo fallback: shows the "assets/logo.png" you'll add, falls back to
      the text wordmark until that file exists. */
   var logoImg = document.getElementById("logo-img");
@@ -66,6 +158,7 @@
 
   /* ---- Lead form ---- */
   var form = document.getElementById("lead-form");
+  if (!form) return;
   var statusEl = document.getElementById("form-status");
   var submitBtn = document.getElementById("form-submit");
 
