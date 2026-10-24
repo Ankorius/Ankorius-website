@@ -260,15 +260,79 @@ h3 { font-size: 1.25rem; }
   transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
 }
 .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: transparent; }
-.service-icon {
-  width: 52px; height: 52px; border-radius: var(--radius-sm);
-  background: var(--orange-100); color: var(--orange-600);
-  display: flex; align-items: center; justify-content: center;
+/* ===== Animated service scenes ===== */
+.service-anim {
   margin-bottom: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, #EEF3F8 0%, #E1EAF4 100%);
+  overflow: hidden;
 }
-.service-icon svg { width: 26px; height: 26px; }
-.service-icon-img { height: 40px; width: auto; }
-.service-icon-img--clock { height: 32px; }
+.service-anim svg { display: block; width: 100%; height: auto; }
+.service-anim image, .service-anim g, .service-anim path, .service-anim ellipse, .service-anim rect, .service-anim polygon, .service-anim circle { transform-box: fill-box; }
+
+/* Leak */
+.sa-flash { transform-origin: center; animation: sa-flash 0.8s ease-in-out infinite alternate; }
+@keyframes sa-flash { 0% { opacity: 0.55; transform: scale(0.85); } 100% { opacity: 1; transform: scale(1.1); } }
+.sa-stream { fill: none; stroke: #4DA3E0; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 7 6; animation: sa-flow 0.5s linear infinite; }
+.sa-stream--b { animation-delay: -0.2s; }
+@keyframes sa-flow { to { stroke-dashoffset: -13; } }
+.sa-drop { animation: sa-dx 1.6s linear infinite; }
+.sa-drop circle { fill: #4DA3E0; opacity: 0; animation: sa-dy 1.6s infinite; animation-delay: inherit; }
+@keyframes sa-dx { from { transform: translateX(0); } to { transform: translateX(var(--dx)); } }
+@keyframes sa-dy {
+  0% { transform: translateY(0); opacity: 0; animation-timing-function: ease-out; }
+  8% { opacity: 1; }
+  34% { transform: translateY(var(--up)); animation-timing-function: ease-in; }
+  92% { opacity: 0.9; }
+  100% { transform: translateY(var(--down)); opacity: 0; }
+}
+.sa-puddle { fill: #4DA3E0; opacity: 0.55; transform-origin: center; animation: sa-puddle 3s ease-in-out infinite alternate; }
+@keyframes sa-puddle { 0% { transform: scaleX(0.6); } 100% { transform: scaleX(1); } }
+.sa-ripple { fill: none; stroke: #FFFFFF; stroke-width: 1.5; opacity: 0; transform-origin: center; animation: sa-ripple 1.6s ease-out infinite; }
+@keyframes sa-ripple { 0% { transform: scale(0.3); opacity: 0.9; } 100% { transform: scale(2.2); opacity: 0; } }
+
+/* Cleaning */
+.sa-grime { transform-origin: left center; animation: sa-wipe 6s ease-in-out infinite; }
+@keyframes sa-wipe {
+  0%, 8% { transform: scaleX(1); opacity: 0.5; }
+  55% { transform: scaleX(0); opacity: 0.5; }
+  88% { transform: scaleX(0); opacity: 0.5; }
+  89% { transform: scaleX(1); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 0.5; }
+}
+.sa-spark { transform-origin: center; transform: scale(0); animation: sa-twinkle 6s ease-in-out infinite; }
+.sa-spark--b { animation-delay: 0.35s; }
+.sa-spark--c { animation-delay: 0.7s; }
+@keyframes sa-twinkle {
+  0%, 52% { transform: scale(0) rotate(0deg); }
+  60% { transform: scale(1.15) rotate(20deg); }
+  68% { transform: scale(0.7) rotate(40deg); }
+  76% { transform: scale(1.1) rotate(60deg); }
+  88%, 100% { transform: scale(0) rotate(90deg); }
+}
+.sa-bottle { transform-origin: 80% 90%; animation: sa-press 1.4s ease-in-out infinite; }
+@keyframes sa-press { 0%, 55%, 100% { transform: rotate(0deg); } 20% { transform: rotate(-4deg); } }
+.sa-mist { fill: #4DA3E0; opacity: 0; animation: sa-spray 1.4s ease-out infinite; }
+@keyframes sa-spray {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 0; }
+  12% { opacity: 0.9; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1.6); opacity: 0; }
+}
+
+/* Maintenance */
+.sa-gear { transform-origin: center; }
+.sa-gear--a { animation: sa-spin 8s linear infinite; }
+.sa-gear--b { animation: sa-spin 5.6s linear infinite reverse; }
+@keyframes sa-spin { to { transform: rotate(360deg); } }
+.sa-wrench { transform-origin: center; animation: sa-swing 2.2s ease-in-out infinite alternate; }
+@keyframes sa-swing { 0% { transform: rotate(-16deg); } 100% { transform: rotate(16deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .service-anim *, .service-anim { animation: none !important; }
+  .sa-spark { transform: scale(1); }
+  .sa-grime { transform: scaleX(0.35); }
+  .sa-mist, .sa-ripple { display: none; }
+}
 .service-card h3 { margin-bottom: 8px; }
 .service-card p { color: var(--ink-muted); font-size: 0.9375rem; }
 
