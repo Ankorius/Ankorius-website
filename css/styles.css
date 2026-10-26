@@ -9,6 +9,10 @@
   --orange-500: #FD6101;
   --orange-600: #E05500;
   --orange-100: #FDECDD;
+  --btn: #EE6510;
+  --btn-hover: #D3580D;
+  --btn-navy: #D3580D;
+  --btn-navy-hover: #B64B0C;
 
   --ink: #1B2430;
   --ink-muted: #5B6472;
@@ -134,14 +138,14 @@ h3 { font-size: 1.25rem; }
 .btn-block { width: 100%; }
 
 .btn-primary {
-  background: var(--orange-500);
+  background: var(--btn);
   color: var(--navy-900);
   box-shadow: var(--shadow-sm);
 }
-.btn-primary:hover { background: var(--orange-600); box-shadow: var(--shadow-md); }
+.btn-primary:hover { background: var(--btn-hover); box-shadow: var(--shadow-md); }
 /* On navy, orange reads brighter, so the deeper shade is used at rest to look the same as on white */
-.hero .btn-primary, .cta-band .btn-primary { background: var(--orange-600); }
-.hero .btn-primary:hover, .cta-band .btn-primary:hover { background: #C24800; }
+.hero .btn-primary, .cta-band .btn-primary { background: var(--btn-navy); }
+.hero .btn-primary:hover, .cta-band .btn-primary:hover { background: var(--btn-navy-hover); }
 .hero .eyebrow, .hero .trust-item .icon, .site-footer .footer-tagline { color: var(--orange-600); }
 .btn-outline-light {
   background: transparent;
