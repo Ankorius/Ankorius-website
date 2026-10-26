@@ -6,8 +6,8 @@
   --navy-600: #2A4E75;
   --navy-100: #E7ECF2;
 
-  --orange-500: #E8792D;
-  --orange-600: #D5661C;
+  --orange-500: #FD6101;
+  --orange-600: #E05500;
   --orange-100: #FDECDD;
 
   --ink: #1B2430;
@@ -99,15 +99,15 @@ input, select, textarea { font-family: inherit; font-size: 16px; }
 .eyebrow {
   display: inline-block;
   font-family: var(--font-head);
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 1.1875rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--orange-600);
+  color: var(--orange-500);
   margin-bottom: var(--space-2);
 }
 .eyebrow-light { color: var(--orange-500); font-size: 0.9375rem; }
-.hero-inner .eyebrow-light { color: #E5681B; font-size: clamp(1.125rem, 0.95rem + 0.8vw, 1.5rem); letter-spacing: 0.1em; }
+.hero-inner .eyebrow-light { font-size: clamp(1.125rem, 0.95rem + 0.8vw, 1.5rem); letter-spacing: 0.1em; }
 
 h2 { font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem); letter-spacing: -0.01em; }
 h3 { font-size: 1.25rem; }
@@ -139,9 +139,10 @@ h3 { font-size: 1.25rem; }
   box-shadow: var(--shadow-sm);
 }
 .btn-primary:hover { background: var(--orange-600); box-shadow: var(--shadow-md); }
-.hero-cta .btn-primary { background: #E5681B; }
-.hero-cta .btn-primary:hover { background: #CF5612; }
-
+/* On navy, orange reads brighter, so the deeper shade is used at rest to look the same as on white */
+.hero .btn-primary, .cta-band .btn-primary { background: var(--orange-600); }
+.hero .btn-primary:hover, .cta-band .btn-primary:hover { background: #C24800; }
+.hero .eyebrow, .hero .trust-item .icon, .site-footer .footer-tagline { color: var(--orange-600); }
 .btn-outline-light {
   background: transparent;
   border-color: rgba(255,255,255,0.45);
@@ -182,7 +183,7 @@ h3 { font-size: 1.25rem; }
   font-family: var(--font-head); font-weight: 700; font-size: 1.625rem;
   letter-spacing: 0.02em; color: var(--navy-800);
 }
-.logo-tagline { font-size: 0.6875rem; color: var(--orange-600); font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; }
+.logo-tagline { font-size: 0.6875rem; color: var(--orange-500); font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; }
 
 .main-nav ul { display: flex; gap: var(--space-4); }
 .main-nav a {
@@ -227,7 +228,7 @@ h3 { font-size: 1.25rem; }
 .hero::before {
   content: "";
   position: absolute; inset: 0;
-  background: radial-gradient(55% 50% at 88% 6%, rgba(232,121,45,0.20) 0%, rgba(232,121,45,0) 70%);
+  background: radial-gradient(55% 50% at 88% 6%, rgba(253,97,1,0.20) 0%, rgba(253,97,1,0) 70%);
   pointer-events: none;
 }
 
@@ -733,7 +734,7 @@ h3 { font-size: 1.25rem; }
 .legal-body p, .legal-body li { color: var(--ink); margin-bottom: var(--space-2); }
 .legal-body ul { list-style: disc; padding-left: 1.25rem; margin-bottom: var(--space-2); }
 .legal-body li { margin-bottom: 8px; }
-.legal-body a { color: var(--orange-600); text-decoration: underline; text-underline-offset: 2px; }
+.legal-body a { color: var(--orange-500); text-decoration: underline; text-underline-offset: 2px; }
 .legal-body a:hover { color: var(--navy-800); }
 .legal-note {
   background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-sm);
