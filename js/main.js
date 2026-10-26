@@ -45,6 +45,20 @@
     if (e.key === "Escape") closeNav();
   });
 
+  /* Pause the decorative animations while they are off screen */
+  var sceneEls = document.querySelectorAll(".service-anim, .about-visual");
+  if ("IntersectionObserver" in window && sceneEls.length) {
+    var sceneIo = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle("is-offscreen", !entry.isIntersecting);
+        });
+      },
+      { rootMargin: "80px 0px" }
+    );
+    sceneEls.forEach(function (el) { sceneIo.observe(el); });
+  }
+
   /* Scroll-reveal */
   var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {
