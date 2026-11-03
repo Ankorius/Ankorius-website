@@ -760,6 +760,8 @@ h3 { font-size: 1.25rem; }
 .project-pair--feature img:nth-child(2) { aspect-ratio: 9 / 16; }
 .project-subhead { font-size: 1.0625rem; margin: var(--space-3) 0 var(--space-1); }
 .project-subhead:first-of-type { margin-top: 0; }
+.cta-band-inner--wide { max-width: 860px; }
+.cta-band-inner--wide p { max-width: 620px; margin-inline: auto; }
 .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); }
 @media (max-width: 860px) {
   .project-card--featured { grid-template-columns: 1fr; }
